@@ -1,0 +1,11 @@
+#Netflix custom property
+ro.netflix.bsp_rev=Q6150-17263-1
+
+# Set stock DPI
+ro.sf.lcd_density=440
+
+# Alipay
+ro.hardware.fp.fod=true
+ro.hardware.fp.vendor=goodix_fod,fpc_fod	
+persist.vendor.sys.fp.fod.location.X_Y=445,1715	
+persist.vendor.sys.fp.fod.size.width_height=190,190
