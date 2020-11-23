@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/nitrogen_toco.mk
+    $(LOCAL_DIR)/lineage_tucana.mk

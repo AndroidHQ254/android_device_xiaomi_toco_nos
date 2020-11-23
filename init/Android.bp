@@ -14,8 +14,8 @@
 // limitations under the License.
 //
 cc_library_static {
-    name: "libinit_toco",
-    srcs: ["init_toco.cpp"],
+    name: "libinit_tucana",
+    srcs: ["init_tucana.cpp"],
     recovery_available: true,
     include_dirs: [
         "system/core/base/include",

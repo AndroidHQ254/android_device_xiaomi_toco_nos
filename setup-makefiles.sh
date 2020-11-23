@@ -7,7 +7,7 @@
 
 set -e
 
-DEVICE=toco
+DEVICE=tucana
 VENDOR=xiaomi
 
 INITIAL_COPYRIGHT_YEAR=2020
@@ -18,7 +18,7 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 LINEAGE_ROOT="${MY_DIR}/../../.."
 
-HELPER="${LINEAGE_ROOT}/vendor/nitrogen/build/tools/extract_utils.sh"
+HELPER="${LINEAGE_ROOT}/vendor/lineage/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
