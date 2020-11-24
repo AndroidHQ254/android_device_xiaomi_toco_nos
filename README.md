@@ -1,25 +1,23 @@
-Copyright (C) 2020 The LineageOS Project
+Device configuration for Xiaomi Mi CC9 Pro/Note 10
+============================================
 
-Device configuration for Xiaomi Mi Note 10 Lite
-=========================================
+The Xiaomi Mi CC9 Pro/Note 10 (codenamed _"tucana"_) are mid-end smartphones from Xiaomi
 
-The Xiaomi Mi Note 10 Lite (codenamed _"toco"_) is a mid range smartphones from Xiaomi's sub-brand Mi.
-
-Mi Note 10 Lite was announced and released in May 2020.
+Both Mi CC9 Pro and Mi Note 10 were announced and released in November 2019
 
 ## Device specifications
 
 Basic   | Spec Sheet
 -------:|:-------------------------
-SoC     | Qualcomm SDM730 Snapdragon 730G
-CPU     | Octa-core (2x2.2 GHz Kryo 470 Gold & 6x1.8 GHz Kryo 470 Silver)
+SoC     | Qualcomm SDM730G Snapdragon 730G
+CPU     | Octa-core (1x2.96 GHz Kryo 485 & 3x2.42 GHz Kryo 485 & 4x1.78 GHz Kryo 485)
 GPU     | Adreno 618
 Memory  | 6/8 GB RAM
-Shipped Android Version | 10 with MIUI 11
-Storage | 64/128/256 GB
-Battery | Non-removable Li-Po 5260 mAh battery
-Display | 1080 x 2340 pixels, 19.5:9 ratio, 6.47 inches, AMOLED capacitive touchscreen (~398 ppi density)
+Shipped Android Version | 9.0 with MIUI 11
+Storage | 128/256 GB
+Battery | Non-removable Li-Ion 5260 mAh battery
+Display | 1080 x 2340 pixels, 19.5:9 ratio, 6.47 inches, AMOLED (~398 ppi density)
 
-## Device picture
+## Device Picture
 
-![Xiaomi Mi Note 10 Lite](https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-mi-note-10-lite-5.jpg)
+![Xiaomi Mi Note 10](https://xiaomi-mi.com/uploads/CatalogueImage/mi-note-10%20(2)_17838_1573854333.jpg "Xiaomi Mi Note 10 in black")
