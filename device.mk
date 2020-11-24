@@ -17,7 +17,7 @@ $(call inherit-product-if-exists, vendor/xiaomi/tucana/tucana-vendor.mk)
 -include $(LOCAL_PATH)/system_prop.mk
 -include $(LOCAL_PATH)/product_prop.mk
 
-PRODUCT_SHIPPING_API_LEVEL := 29
+PRODUCT_SHIPPING_API_LEVEL := 28
 PRODUCT_TARGET_VNDK_VERSION := 29
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
