@@ -5,10 +5,10 @@
 #
 # ADB
 # Get rid of that by overriding it in /product
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.secure=0 \
-    ro.adb.secure=0 \
-    ro.control_privapp_permissions=log
+#PRODUCT_PRODUCT_PROPERTIES += \
+#    ro.secure=0 \
+#    ro.adb.secure=0 \
+#    ro.control_privapp_permissions=log
 
 # Camera
 PRODUCT_PRODUCT_PROPERTIES += \
