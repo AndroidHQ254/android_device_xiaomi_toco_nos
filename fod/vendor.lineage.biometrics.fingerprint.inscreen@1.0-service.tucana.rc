@@ -1,7 +1,7 @@
 on boot
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display/fod_ui
 
-service fingerprint-inscreen-1-0 /vendor/bin/hw/vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.tucana
+service fingerprint-inscreen-1-0 /system/bin/hw/vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.tucana
     interface vendor.lineage.biometrics.fingerprint.inscreen@1.0::IFingerprintInscreen default
     class hal
     user system

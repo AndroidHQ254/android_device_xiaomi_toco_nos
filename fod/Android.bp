@@ -14,10 +14,10 @@
 // limitations under the License.
 
 cc_binary {
-    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.tucana",
     relative_install_path: "hw",
-    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.tucana"],
     defaults: ["hidl_defaults"],
+    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.tucana",
+    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.tucana"],
     srcs: [
         "service.cpp",
         "FingerprintInscreen.cpp",
