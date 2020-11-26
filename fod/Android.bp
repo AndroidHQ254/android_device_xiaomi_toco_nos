@@ -17,9 +17,9 @@ cc_binary {
     relative_install_path: "hw",
     defaults: ["hidl_defaults"],
     name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.tucana",
-    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.tucana"],
+    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.tucana.rc"],
     srcs: [
-        "service.cpp",
+	"service.cpp",
         "FingerprintInscreen.cpp",
     ],
     shared_libs: [
