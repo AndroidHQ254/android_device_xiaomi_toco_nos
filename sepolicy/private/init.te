@@ -1,0 +1,6 @@
+allow init hal_touchfeature_xiaomi_hwservice:hwservice_manager find;
+allow init hal_touchfeature_xiaomi_default:binder call;
+allow init default_android_hwservice:hwservice_manager add;
+allow init hal_fingerprint_hwservice_xiaomi:hwservice_manager find;
+allow init hal_displayfeature_xiaomi_hwservice:hwservice_manager find;
+allow init hidl_base_hwservice:hwservice_manager add;
