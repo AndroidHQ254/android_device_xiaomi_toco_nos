@@ -8,6 +8,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.library_name=libbluetooth_qti.so \
     vendor.bluetooth.soc=cherokee
 
+# Camera
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
+    
 # CNE
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.vendor.cne.feature=1
@@ -23,6 +27,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.latch_unsignaled=1 \
     debug.sf.enable_hwc_vds=1
 
+# IMS
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.vt_avail_ovr=1 \
+    persist.dbg.wfc_avail_ovr=1
+
 # Memory optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.sys.fw.bservice_enable=true
@@ -30,6 +40,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Netflix
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.netflix.bsp_rev=Q8250-19134-1
+
+# Netmgr
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.vendor.data.iwlan.enable=true \
+    ro.vendor.use_data_netmgrd=true \
+    persist.vendor.data.mode=concurrent
 
 # RCS
 PRODUCT_PROPERTY_OVERRIDES += \
