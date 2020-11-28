@@ -71,6 +71,7 @@ PRODUCT_COPY_FILES += \
 
 # Init
 PRODUCT_PACKAGES += \
+    init.qcom.rc \
     init.mi_thermald.rc
 
 # Keylayout
