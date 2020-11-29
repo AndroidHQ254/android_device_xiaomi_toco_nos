@@ -17,13 +17,14 @@
 #include <compositionengine/FodExtension.h>
 
 uint32_t getFodZOrder(uint32_t z, bool touched) {
-    if (touched) {
+    if (!touched) {
         z |= 0x1000000;
+    } else {
+        z |= 0x2000000;
     }
     return z;
 }
 
-uint64_t getFodUsageBits(uint64_t usageBits, bool touched) {
-    (void) touched;
+uint64_t getFodUsageBits(uint64_t usageBits, bool) {
     return usageBits;
 }
