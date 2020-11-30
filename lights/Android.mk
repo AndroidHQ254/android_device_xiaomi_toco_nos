@@ -7,6 +7,7 @@ LOCAL_MODULE_TAGS  := optional
 
 LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/bin
 LOCAL_MODULE_RELATIVE_PATH := hw
+
 LOCAL_MODULE_STEM := android.hardware.light@2.0-service
 
 LOCAL_SRC_FILES := \
@@ -18,11 +19,8 @@ LOCAL_REQUIRED_MODULES := \
 
 LOCAL_SHARED_LIBRARIES := \
     libbase \
-    libhardware \
     libhidlbase \
     libhidltransport \
-    liblog \
-    libhwbinder \
     libutils \
     android.hardware.light@2.0
 
@@ -39,4 +37,4 @@ LOCAL_MODULE_STEM := android.hardware.light@2.0-service.rc
 
 LOCAL_SRC_FILES := android.hardware.light@2.0-service.tucana.rc
 
-include $(BUILD_PREBUILT)
+include $(BUILD_PREBUILT) 
