@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018-2020 The LineageOS Project
+ * Copyright (C) 2016 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,12 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-#pragma once
+#ifndef ANDROID_HARDWARE_LIGHT_V2_0_LIGHT_H
+#define ANDROID_HARDWARE_LIGHT_V2_0_LIGHT_H
 
 #include <android/hardware/light/2.0/ILight.h>
-
-#include <unordered_map>
+#include <hardware/hardware.h>
+#include <hardware/lights.h>
+#include <hidl/Status.h>
+#include <hidl/MQDescriptor.h>
+#include <map>
 
 namespace android {
 namespace hardware {
@@ -26,43 +29,34 @@ namespace light {
 namespace V2_0 {
 namespace implementation {
 
-using ::android::hardware::Return;
 using ::android::hardware::light::V2_0::ILight;
 using ::android::hardware::light::V2_0::LightState;
 using ::android::hardware::light::V2_0::Status;
 using ::android::hardware::light::V2_0::Type;
+using ::android::hardware::Return;
+using ::android::hardware::Void;
+using ::android::hardware::hidl_vec;
+using ::android::hardware::hidl_string;
+using ::android::sp;
 
-class Light : public ILight {
-  public:
-    Light();
+struct Light : public ILight {
+    Light(std::map<Type, light_device_t*> &&lights);
 
-    Return<Status> setLight(Type type, const LightState& state) override;
-    Return<void> getSupportedTypes(getSupportedTypes_cb _hidl_cb) override;
+    Return<Status> setLight(Type type, const LightState& state)  override;
+    Return<void> getSupportedTypes(getSupportedTypes_cb _hidl_cb)  override;
 
-  private:
-    void setLightBacklight(Type type, const LightState& state);
-    void setLightNotification(Type type, const LightState& state);
-    void applyNotificationState(const LightState& state);
+    Return<void> debug(const hidl_handle& handle, const hidl_vec<hidl_string>& options) override;
 
-    uint32_t max_led_brightness_;
-    uint32_t max_screen_brightness_;
-
-    std::unordered_map<Type, std::function<void(Type type, const LightState&)>> lights_{
-            {Type::ATTENTION, [this](auto&&... args) { setLightNotification(args...); }},
-            {Type::BACKLIGHT, [this](auto&&... args) { setLightBacklight(args...); }},
-            {Type::BATTERY, [this](auto&&... args) { setLightNotification(args...); }},
-            {Type::NOTIFICATIONS, [this](auto&&... args) { setLightNotification(args...); }}};
-
-    // Keep sorted in the order of importance.
-    std::array<std::pair<Type, LightState>, 3> notif_states_ = {{
-            {Type::ATTENTION, {}},
-            {Type::NOTIFICATIONS, {}},
-            {Type::BATTERY, {}},
-    }};
+   private:
+    std::map<Type, light_device_t*> mLights;
 };
+
+extern "C" ILight* HIDL_FETCH_ILight(const char* name);
 
 }  // namespace implementation
 }  // namespace V2_0
 }  // namespace light
 }  // namespace hardware
 }  // namespace android
+
+#endif  // ANDROID_HARDWARE_LIGHT_V2_0_LIGHT_H
