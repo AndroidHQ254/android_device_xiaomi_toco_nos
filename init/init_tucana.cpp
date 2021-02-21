@@ -125,12 +125,12 @@ void vendor_load_properties() {
         set_ro_build_prop(source, "fingerprint",
                           "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
         set_ro_product_prop(source, "brand", "Xiaomi");
-        set_ro_product_prop(source, "device", "toco");
-        set_ro_product_prop(source, "model", "Mi Note 10 Lite");
+        set_ro_product_prop(source, "device", "tucana");
+        set_ro_product_prop(source, "model", "Mi Note 10");
     }
     property_override("ro.build.fingerprint", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
     property_override("ro.bootimage.build.fingerprint", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
-    property_override("ro.build.description", "toco_global-user 10 QKQ1.190825.002 V12.0.2.0.QFNMIXM release-keys");
+    property_override("ro.build.description", "tucana_eea-user 10 QKQ1.190825.002 V11.1.1.0.QFDEUXM release-keys");
 
     // Workaround SafetyNet
     workaround_snet_properties();

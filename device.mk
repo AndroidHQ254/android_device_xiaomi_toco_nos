@@ -12,19 +12,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/xiaomi/toco/toco-vendor.mk)
-
-# Include PSU if synced
-$(call inherit-product-if-exists, vendor/google/psu/google-psu.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/tucana/tucana-vendor.mk)
 
 -include $(LOCAL_PATH)/system_prop.mk
 -include $(LOCAL_PATH)/product_prop.mk
 
-PRODUCT_BUILD_SUPER_PARTITION := false
-BOARD_BUILD_PRODUCT_IMAGE := true
-PRODUCT_SHIPPING_API_LEVEL := 29
+PRODUCT_SHIPPING_API_LEVEL := 28
 PRODUCT_TARGET_VNDK_VERSION := 29
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # AAPT config
@@ -60,16 +54,33 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Snap
 
+# Device-specific settings
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
+
+# Fingerprint
+PRODUCT_PACKAGES += \
+    lineage.biometrics.fingerprint.inscreen@1.0-service.tucana
+
+PRODUCT_COPY_FILES += \
+   vendor/lineage/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
 
 # fstab
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
 
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0
+
 # Init
 PRODUCT_PACKAGES += \
+    init.qcom.rc \
     init.mi_thermald.rc
 
 # Keylayout
@@ -79,7 +90,7 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.toco
+    android.hardware.light@2.0-impl.tucana
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -113,7 +124,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service.toco
+    android.hardware.power@1.2-service.tucana
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -132,5 +143,6 @@ PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
 # Vendor overlay
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vendor-overlay/etc/qdcm_calib_data_nt36672c_huaxing_fhd_video_mode_dsi_panel.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/qdcm_calib_data_nt36672c_huaxing_fhd_video_mode_dsi_panel.xml \
-    $(LOCAL_PATH)/vendor-overlay/etc/qdcm_calib_data_nt36672c_tianma_fhd_video_mode_dsi_panel.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/qdcm_calib_data_nt36672c_tianma_fhd_video_mode_dsi_panel.xml \
+    $(LOCAL_PATH)/vendor-overlay/etc/dsi_xiaomi_f4_36_02_0b_fhd_cmd_display_mi.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/dsi_xiaomi_f4_36_02_0b_fhd_cmd_display_mi.xml \
+    $(LOCAL_PATH)/vendor-overlay/etc/dsi_xiaomi_f4_41_06_0a_fhd_cmd_display_mi.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/dsi_xiaomi_f4_41_06_0a_fhd_cmd_display_mi.xml \
+    $(LOCAL_PATH)/vendor-overlay/etc/dsi_xiaomi_f4_42_06_0c_fhd_cmd_display_mi.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/dsi_xiaomi_f4_42_06_0c_fhd_cmd_display_mi.xml \
